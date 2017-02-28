@@ -1,0 +1,27 @@
+.containers-Root---wrapper {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+.containers-Home---wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.containers-Home---films,
+.containers-Home---control {
+    align-items: center;
+    display: flex;
+    font-size: 48px;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+.containers-Remote---pause {
+
+}
