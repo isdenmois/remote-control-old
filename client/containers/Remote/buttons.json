@@ -90,17 +90,10 @@
     "left": 100
   },
   {
-    "key": "v",
+    "key": "l",
     "icon": "commenting-o",
     "top": -50,
     "left": -100,
-    "from": "bottom"
-  },
-  {
-    "key": "l",
-    "icon": "comments-o",
-    "top": -50,
-    "left": 0,
     "from": "bottom",
     "modifiers": ["alt"]
   },
