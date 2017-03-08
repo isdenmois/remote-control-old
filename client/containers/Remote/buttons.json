@@ -1,0 +1,46 @@
+[
+  {
+    "key": "space",
+    "icon": "play",
+    "top": 0,
+    "left": 0,
+    "from": "center"
+  },
+  {
+    "key": "audio_vol_up",
+    "icon": "volume-up",
+    "top": -80,
+    "left": 0,
+    "from": "center"
+  },
+  {
+    "key": "audio_vol_down",
+    "icon": "volume-down",
+    "top": 80,
+    "left": 0,
+    "from": "center"
+  },
+  {
+    "key": "left",
+    "icon": "backward",
+    "top": 0,
+    "left": -80,
+    "from": "center",
+    "interval": 300
+  },
+  {
+    "key": "right",
+    "icon": "forward",
+    "top": 0,
+    "left": 80,
+    "from": "center",
+    "interval": 300
+  },
+  {
+    "key": "f4",
+    "icon": "times",
+    "top": 40,
+    "left": 0,
+    "modifiers": ["alt"]
+  }
+]
