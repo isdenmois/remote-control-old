@@ -11,14 +11,16 @@
     "icon": "volume-up",
     "top": -80,
     "left": 0,
-    "from": "center"
+    "from": "center",
+    "interval": 60
   },
   {
     "key": "audio_vol_down",
     "icon": "volume-down",
     "top": 80,
     "left": 0,
-    "from": "center"
+    "from": "center",
+    "interval": 60
   },
   {
     "key": "left",
@@ -26,7 +28,7 @@
     "top": 0,
     "left": -80,
     "from": "center",
-    "interval": 300
+    "interval": 100
   },
   {
     "key": "right",
@@ -34,13 +36,58 @@
     "top": 0,
     "left": 80,
     "from": "center",
-    "interval": 300
+    "interval": 100
   },
   {
     "key": "f4",
     "icon": "times",
     "top": 40,
     "left": 0,
+    "modifiers": ["alt"],
+    "confirm": "Закрыть окно?"
+  },
+  {
+    "key": "shutdown",
+    "icon": "power-off",
+    "top": 40,
+    "left": -80,
+    "confirm": "Выключить?"
+  },
+  {
+    "key": "displayswitch",
+    "icon": "television",
+    "top": 120,
+    "left": -80,
+    "modifiers": ["internal"],
+    "confirm": "Переключить на телевизор?"
+  },
+  {
+    "key": "displayswitch",
+    "icon": "desktop",
+    "top": 120,
+    "left": 80,
+    "modifiers": ["external"],
+    "confirm": "Переключить на рабочий стол?"
+  },
+  {
+    "key": "enter",
+    "icon": "expand",
+    "top": 40,
+    "left": 80
+  },
+  {
+    "key": "v",
+    "icon": "commenting-o",
+    "top": -50,
+    "left": -80,
+    "from": "bottom"
+  },
+  {
+    "key": "a",
+    "icon": "audio-description",
+    "top": -50,
+    "left": 80,
+    "from": "bottom",
     "modifiers": ["alt"]
   }
 ]

@@ -9,6 +9,20 @@ export default class Button extends PureComponent {
         this.interval = -1;
     }
 
+    getClassName() {
+        const icon = `fa-${this.props.icon}`;
+        const position = css[this.props.from];
+        return cn(css.button, 'fa', icon, position);
+    }
+
+    getStyles() {
+        const x = this.props.left;
+        const y = this.props.top;
+        return {
+            transform: `translate(${x}px, ${y}px)`,
+        };
+    }
+
     setInterval() {
         const interval = this.props.interval;
         this.sendKey();
@@ -26,23 +40,25 @@ export default class Button extends PureComponent {
         });
     }
 
-    render() {
-        const interval = this.props.interval;
-        const icon = `fa-${this.props.icon}`;
-        const position = css[this.props.from];
-        const className = cn(css.button, 'fa', icon, position);
-        const x = this.props.left;
-        const y = this.props.top;
-        const styles = {
-            transform: `translate(${x}px, ${y}px)`,
-        };
+    handleTouchStart() {
+        if (this.props.confirm && !confirm(this.props.confirm)) {
+            return;
+        }
 
+        if (this.props.interval) {
+            this.setInterval();
+        } else {
+            this.sendKey();
+        }
+    }
+
+    render() {
         return (
             <i
-                className={className}
-                onTouchStart={() => interval ? this.setInterval() : this.sendKey()}
+                className={this.getClassName()}
+                onTouchStart={() => this.handleTouchStart()}
                 onTouchEnd={() => this.clearInterval()}
-                style={styles}
+                style={this.getStyles()}
             />
         );
     }
@@ -56,6 +72,7 @@ Button.propTypes = {
     left: PropTypes.number.isRequired,
     from: PropTypes.oneOf(['center', 'top', 'bottom']),
     interval: PropTypes.number,
+    confirm: PropTypes.string,
 };
 
 Button.defaultProps = {

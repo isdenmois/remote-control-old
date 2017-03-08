@@ -6,19 +6,19 @@ import List from '../../components/List';
 import ListItem from '../../components/ListItem';
 import open from '../../open';
 
-export default class FilmContainer extends PureComponent {
+export default class SerialContainer extends PureComponent {
     render() {
         const hash = this.props.match.params.id;
-        const film = find(this.context.films, { hash }) || {};
-        const path = film.path;
+        const serial = find(this.context.serials, { hash }) || {};
+        const path = serial.path;
 
         return (
             <List>
-                {map(film.files, name => (
+                {map(serial.files, name => (
                     <ListItem
                         key={name}
-                        center={name.replace(/_/g, ' ')}
                         href="/remote"
+                        center={name.replace(/_/g, ' ')}
                         onClick={() => open(`${path}${name}`)}
                     />
                 ))}
@@ -27,10 +27,10 @@ export default class FilmContainer extends PureComponent {
     }
 }
 
-FilmContainer.propTypes = {
+SerialContainer.propTypes = {
     match: PropTypes.object,
 };
 
-FilmContainer.contextTypes = {
-    films: PropTypes.array,
+SerialContainer.contextTypes = {
+    serials: PropTypes.array,
 };

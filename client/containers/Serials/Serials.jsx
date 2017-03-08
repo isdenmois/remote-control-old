@@ -1,21 +1,18 @@
 import React, { PropTypes, PureComponent } from 'react';
-import map from 'lodash/map';
-
-import open from '../../open';
 import List from '../../components/List';
 import ListItem from '../../components/ListItem';
 
-export default class FilmsContainer extends PureComponent {
+export default class SerialsContainer extends PureComponent {
     renderItem(data) {
-        const path = data.files.length > 1 ? `/films/${data.hash}` : 'remote';
+        const path = data.files.length > 1 ? `/serials/${data.hash}` : 'remote';
         const dPath = data.path;
         const onClick = data.files.length === 1 ? () => open(`${dPath}${data.files[0]}`) : undefined;
 
         return (
             <ListItem
                 key={data.hash}
-                center={data.name}
                 href={path}
+                center={data.name.replace(/_/g, ' ')}
                 onClick={onClick}
             />
         );
@@ -24,12 +21,12 @@ export default class FilmsContainer extends PureComponent {
     render() {
         return (
             <List>
-                {map(this.context.films, this.renderItem)}
+                {this.context.serials.map(this.renderItem)}
             </List>
         );
     }
 }
 
-FilmsContainer.contextTypes = {
-    films: PropTypes.array,
+SerialsContainer.contextTypes = {
+    serials: PropTypes.array,
 };

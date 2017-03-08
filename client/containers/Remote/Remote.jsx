@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import map from 'lodash/map';
+
 import Button from '../../components/Button';
 import buttons from './buttons.json';
 
@@ -9,7 +10,7 @@ export default class RemoteContainer extends PureComponent {
             <div>
                 {map(buttons, b => (
                     <Button
-                        key={b.key}
+                        key={`${b.key}-${b.icon}`}
                         icon={b.icon}
                         k={b.key}
                         top={b.top}
@@ -17,6 +18,7 @@ export default class RemoteContainer extends PureComponent {
                         from={b.from}
                         modifiers={b.modifiers}
                         interval={b.interval}
+                        confirm={b.confirm}
                     />
                 ))}
             </div>

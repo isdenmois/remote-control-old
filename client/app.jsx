@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
 import { Route, BrowserRouter } from 'react-router-dom';
 
-import store from './store';
+import DataProvider from './containers/DataProvider';
 import RootContainer from './containers/Root';
 import HomeContainer from './containers/Home';
 import FilmsContainer from './containers/Films';
@@ -11,27 +10,11 @@ import FilmContainer from './containers/Film';
 import SerialContainer from './containers/Serial';
 import RemoteContainer from './containers/Remote';
 
-socket.on("serials", (serials) => {
-    store.dispatch({
-        type: 'serials',
-        serials,
-    });
-});
-
-socket.on("films", (films) => {
-    store.dispatch({
-        type: 'films',
-        films,
-    });
-});
-
-socket.emit('data', 'films');
-socket.emit('data', 'serials');
 
 export default class extends Component {
     render() {
         return (
-            <Provider store={store}>
+            <DataProvider>
                 <BrowserRouter>
                     <RootContainer>
                         <Route exact path="/" component={HomeContainer} />
@@ -42,7 +25,7 @@ export default class extends Component {
                         <Route path="/remote" component={RemoteContainer} />
                     </RootContainer>
                 </BrowserRouter>
-            </Provider>
+            </DataProvider>
         );
     }
 }
