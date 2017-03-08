@@ -1,8 +1,8 @@
 import React, { PropTypes, PureComponent } from 'react';
 
 export default class DataProvider extends PureComponent {
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
 
         this.state = {
             films: [],

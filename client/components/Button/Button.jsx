@@ -3,8 +3,8 @@ import cn from 'classnames';
 import css from './Button.css';
 
 export default class Button extends PureComponent {
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
 
         this.interval = -1;
     }

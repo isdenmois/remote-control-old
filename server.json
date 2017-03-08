@@ -1,0 +1,11 @@
+{
+    "apps": [
+        {
+            "name": "remote-control",
+            "script": "server.js",
+            "env": {
+                "NODE_ENV": "production"
+            }
+        }
+    ]
+}

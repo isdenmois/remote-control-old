@@ -26,7 +26,7 @@
     "key": "left",
     "icon": "backward",
     "top": 0,
-    "left": -80,
+    "left": -100,
     "from": "center",
     "interval": 100
   },
@@ -34,8 +34,16 @@
     "key": "right",
     "icon": "forward",
     "top": 0,
-    "left": 80,
+    "left": 100,
     "from": "center",
+    "interval": 100
+  },
+  {
+    "key": "pageup",
+    "icon": "fast-backward",
+    "top": -120,
+    "left": -100,
+    "from": "bottom",
     "interval": 100
   },
   {
@@ -47,46 +55,60 @@
     "confirm": "Закрыть окно?"
   },
   {
+    "key": "pagedown",
+    "icon": "fast-forward",
+    "top": -120,
+    "left": 100,
+    "from": "bottom",
+    "interval": 100
+  },
+  {
     "key": "shutdown",
     "icon": "power-off",
     "top": 40,
-    "left": -80,
+    "left": -100,
     "confirm": "Выключить?"
   },
   {
     "key": "displayswitch",
     "icon": "television",
     "top": 120,
-    "left": -80,
-    "modifiers": ["internal"],
-    "confirm": "Переключить на телевизор?"
+    "left": -100,
+    "modifiers": ["internal"]
   },
   {
     "key": "displayswitch",
     "icon": "desktop",
     "top": 120,
-    "left": 80,
-    "modifiers": ["external"],
-    "confirm": "Переключить на рабочий стол?"
+    "left": 100,
+    "modifiers": ["external"]
   },
   {
     "key": "enter",
     "icon": "expand",
     "top": 40,
-    "left": 80
+    "left": 100
   },
   {
     "key": "v",
     "icon": "commenting-o",
     "top": -50,
-    "left": -80,
+    "left": -100,
     "from": "bottom"
+  },
+  {
+    "key": "l",
+    "icon": "comments-o",
+    "top": -50,
+    "left": 0,
+    "from": "bottom",
+    "modifiers": ["alt"]
   },
   {
     "key": "a",
     "icon": "audio-description",
     "top": -50,
-    "left": 80,
+    "left": 100,
     "from": "bottom",
     "modifiers": ["alt"]
   }

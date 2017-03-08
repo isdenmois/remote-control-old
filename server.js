@@ -28,38 +28,48 @@ if (process.env.NODE_ENV === 'production') {
     require('./middleware')(app);
 }
 
-Promise.all([
+const clients = [];
+let data = {};
+
+function getData() {
     parser()
-]).then(([data]) => {
-    io.on('connection', function(client) {
-        client.on('data', (type) => {
-            client.emit(type, data[type]);
+        .then(d => {
+            data = d;
+            io.emit('films', data.films || []);
+            io.emit('serials', data.serials || []);
         });
+}
 
-        client.on('open', open);
-
-        client.on('keyboard', (k) => {
-            if (!k.key) {
-                return;
-            }
-
-            if (k.key === 'shutdown') {
-                shutdown();
-                return;
-            }
-
-            if (k.key === 'displayswitch') {
-                displaySwitch(k.modifiers[0]);
-                return;
-            }
-
-            if (k.modifiers) {
-                robotjs.keyTap(k.key, k.modifiers);
-            } else {
-                robotjs.keyTap(k.key);
-            }
-        });
+io.on('connection', function(client) {
+    client.on('data', (type) => {
+        client.emit(type, data[type]);
     });
 
-    server.listen(process.env.NODE_ENV === 'production' ? 80 : 8080);
+    client.on('open', open);
+
+    client.on('keyboard', (k) => {
+        if (!k.key) {
+            return;
+        }
+
+        if (k.key === 'shutdown') {
+            shutdown();
+            return;
+        }
+
+        if (k.key === 'displayswitch') {
+            displaySwitch(k.modifiers[0]);
+            return;
+        }
+
+        if (k.modifiers) {
+            robotjs.keyTap(k.key, k.modifiers);
+        } else {
+            robotjs.keyTap(k.key);
+        }
+    });
 });
+
+server.listen(process.env.NODE_ENV === 'production' ? 80 : 8080);
+getData();
+setInterval(getData, 30000);
