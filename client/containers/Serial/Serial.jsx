@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
-import find from 'lodash/find';
-import map from 'lodash/map';
+import find from '../../find';
+import map from '../../map';
 
 import List from '../../components/List';
 import ListItem from '../../components/ListItem';
@@ -8,7 +8,7 @@ import open from '../../open';
 
 export default class SerialContainer extends PureComponent {
     render() {
-        const hash = this.props.match.params.id;
+        const hash = this.props.id;
         const serial = find(this.context.serials, { hash }) || {};
         const path = serial.path;
 

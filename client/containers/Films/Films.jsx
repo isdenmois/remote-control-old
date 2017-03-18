@@ -1,9 +1,9 @@
 import React, { PropTypes, PureComponent } from 'react';
-import map from 'lodash/map';
 
 import open from '../../open';
 import List from '../../components/List';
 import ListItem from '../../components/ListItem';
+import map from '../../map';
 
 export default class FilmsContainer extends PureComponent {
     renderItem(data) {

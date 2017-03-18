@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'preact-router';
 
 import css from './ListItem.css';
 
@@ -10,7 +10,7 @@ class ListItem extends PureComponent {
         return (
             <Link
                 className={css.listItem}
-                to={this.props.href}
+                href={this.props.href}
                 onClick={this.props.onClick}
             >
                 <div className={css.center}>

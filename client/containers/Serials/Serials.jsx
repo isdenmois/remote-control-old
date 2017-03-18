@@ -1,6 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react';
 import List from '../../components/List';
 import ListItem from '../../components/ListItem';
+import map from '../../map';
 
 export default class SerialsContainer extends PureComponent {
     renderItem(data) {
@@ -21,7 +22,7 @@ export default class SerialsContainer extends PureComponent {
     render() {
         return (
             <List>
-                {this.context.serials.map(this.renderItem)}
+                {map(this.context.serials, this.renderItem)}
             </List>
         );
     }

@@ -9,6 +9,7 @@ const render = (Component) => {
 
 render(RootApp);
 if (module.hot) {
+    require('preact/devtools');
     module.hot.accept('./app', () => {
         render(RootApp)
     });
