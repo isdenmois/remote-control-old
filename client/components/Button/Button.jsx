@@ -29,7 +29,8 @@ export default class Button extends PureComponent {
         this.interval = setInterval(() => this.sendKey(), interval);
     }
 
-    clearInterval() {
+    clearInterval(event) {
+        event.preventDefault();
         clearInterval(this.interval);
     }
 
@@ -57,7 +58,7 @@ export default class Button extends PureComponent {
             <i
                 className={this.getClassName()}
                 onTouchStart={() => this.handleTouchStart()}
-                onTouchEnd={() => this.clearInterval()}
+                onTouchEnd={e => this.clearInterval(e)}
                 style={this.getStyles()}
             />
         );
