@@ -1,7 +1,9 @@
 import React, { PureComponent, PropTypes } from 'react';
 import cn from 'classnames';
+import xr from 'xr';
 import css from './Button.css';
 
+let sending = false;
 export default class Button extends PureComponent {
     constructor(props, context) {
         super(props, context);
@@ -35,10 +37,16 @@ export default class Button extends PureComponent {
     }
 
     sendKey() {
-        socket.emit('keyboard', {
-            key: this.props.k,
-            modifiers: this.props.modifiers,
-        });
+        if (sending == false) {
+            sending = true;
+            xr.post(`/api/button/${this.props.k}`, {}, {
+                params: {
+                    modifiers: this.props.modifiers,
+                },
+            })
+            .then(() => sending = false)
+            .catch(() => sending = false);
+        }
     }
 
     handleTouchStart() {

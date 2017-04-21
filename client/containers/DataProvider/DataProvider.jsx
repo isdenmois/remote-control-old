@@ -1,4 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
+import xr from 'xr';
 
 export default class DataProvider extends PureComponent {
     constructor(props, context) {
@@ -11,16 +12,14 @@ export default class DataProvider extends PureComponent {
     }
 
     componentWillMount() {
-        socket.on('serials', serials =>  this.setState({ serials }));
-        socket.on('films', films =>  this.setState({ films }));
-
-        socket.emit('data', 'films');
-        socket.emit('data', 'serials');
-    }
-
-    componentWillUnmount() {
-        socket.off('films');
-        socket.off('serials');
+        xr
+            .get('/api/films')
+            .then(r => r.data)
+            .then(films => this.setState({ films }));
+        xr
+            .get('/api/serials')
+            .then(r => r.data)
+            .then(serials => this.setState({ serials }));
     }
 
     getChildContext() {

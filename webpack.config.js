@@ -12,8 +12,7 @@ module.exports = {
         // the output bundle
 
         path: resolve(__dirname, 'static'),
-
-        publicPath: '/'
+        publicPath: '/static',
         // necessary for HMR to know where to load the hot update chunks
     },
 
@@ -35,9 +34,8 @@ module.exports = {
         historyApiFallback: true,
 
         proxy: {
-            '/socket.io/*': {
-                target: 'ws://localhost:9090',
-                ws: true,
+            '/api': {
+                target: 'http://localhost:8080',
             },
         },
     },

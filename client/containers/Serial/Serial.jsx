@@ -1,6 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react';
 import find from '../../find';
 import map from '../../map';
+import sort from '../../sort';
 
 import List from '../../components/List';
 import ListItem from '../../components/ListItem';
@@ -14,12 +15,12 @@ export default class SerialContainer extends PureComponent {
 
         return (
             <List>
-                {map(serial.files, name => (
+                {map(sort(serial.files, 'name'), file => (
                     <ListItem
-                        key={name}
+                        key={file.name}
                         href="/remote"
-                        center={name.replace(/_/g, ' ')}
-                        onClick={() => open(`${path}${name}`)}
+                        center={file.name.replace(/_/g, ' ')}
+                        onClick={() => open(file.path)}
                     />
                 ))}
             </List>

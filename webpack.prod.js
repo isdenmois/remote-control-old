@@ -13,7 +13,7 @@ module.exports = {
     output: {
         filename: '[name].js',
         path: resolve(__dirname, 'static'),
-        publicPath: '/'
+        publicPath: '/static',
     },
 
     context: resolve(__dirname, 'client'),

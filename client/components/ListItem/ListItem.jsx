@@ -1,17 +1,25 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { Link } from 'preact-router';
+import { route } from 'preact-router';
 
 import css from './ListItem.css';
 
 class ListItem extends PureComponent {
+    onClick(event) {
+        event.preventDefault();
+        if (this.props.onClick) {
+            this.props.onClick();
+        }
+        route(this.props.href);
+    }
+
     render() {
         const center = this.props.center.replace(/_/g, ' ');
 
         return (
-            <Link
+            <a
                 className={css.listItem}
                 href={this.props.href}
-                onClick={this.props.onClick}
+                onClick={(e) => this.onClick(e)}
             >
                 <div className={css.center}>
                     {center}
@@ -21,7 +29,7 @@ class ListItem extends PureComponent {
                         {this.props.right}
                     </div>
                 )}
-            </Link>
+            </a>
         );
     }
 }

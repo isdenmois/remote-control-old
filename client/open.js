@@ -1,3 +1,5 @@
+import xr from 'xr';
+
 export default function(path) {
-    socket.emit('open', path);
+    xr.post('/api/open', {}, { params: { path } });
 }

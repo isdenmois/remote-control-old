@@ -10,16 +10,15 @@ export default class FilmContainer extends PureComponent {
     render() {
         const hash = this.props.id;
         const film = find(this.context.films, { hash }) || {};
-        const path = film.path;
 
         return (
             <List>
-                {map(film.files, name => (
+                {map(film.files, file => (
                     <ListItem
-                        key={name}
-                        center={name.replace(/_/g, ' ')}
+                        key={file.name}
+                        center={file.name.replace(/_/g, ' ')}
                         href="/remote"
-                        onClick={() => open(`${path}${name}`)}
+                        onClick={() => open(file.path)}
                     />
                 ))}
             </List>
