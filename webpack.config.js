@@ -1,11 +1,12 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: [
         'webpack-hot-middleware/client',
-        './index.js',
+        './index.tsx',
     ],
     output: {
         filename: 'bundle.js',
@@ -48,6 +49,19 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader',
+                }),
+                include: /node_modules/,
+            },
+            {
                 test: /\.css$/,
                 use: [
                     'style-loader',
@@ -60,15 +74,17 @@ module.exports = {
                 test: /\.json$/,
                 loader: 'json-loader',
             },
+            { test: /\.png$/, use: 'url-loader?limit=10000' },
+            { test: /\.jpg$/, use: 'file-loader' },
+            {
+                test: /\.(woff|woff2|eot|ttf|svg)$/,
+                loader: 'url-loader?limit=100000',
+            },
         ],
     },
 
     resolve: {
-        extensions: ['.js', '.jsx'],
-        alias: {
-            react: 'preact-compat',
-            'react-dom': 'preact-compat',
-        },
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
 
     plugins: [
@@ -76,6 +92,9 @@ module.exports = {
         new webpack.NamedModulesPlugin(),
         new HtmlWebpackPlugin({
             template: 'index.html',
+        }),
+        new ExtractTextPlugin({
+            filename: '[name].css'
         }),
     ],
 };

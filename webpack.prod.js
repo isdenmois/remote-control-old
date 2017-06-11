@@ -8,7 +8,7 @@ const strip = require('strip-loader');
 
 module.exports = {
     entry: [
-        './index.js',
+        './index.tsx',
     ],
     output: {
         filename: '[name].js',
@@ -29,6 +29,19 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader',
+                }),
+                include: /node_modules/,
+            },
+            {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
@@ -43,11 +56,17 @@ module.exports = {
                 test: /\.json$/,
                 loader: 'json-loader',
             },
+            { test: /\.png$/, use: 'url-loader?limit=10000' },
+            { test: /\.jpg$/, use: 'file-loader' },
+            {
+                test: /\.(woff|woff2|eot|ttf|svg)$/,
+                loader: 'url-loader?limit=100000',
+            },
         ],
     },
 
     resolve: {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
         alias: {
             react: 'preact-compat',
             'react-dom': 'preact-compat',

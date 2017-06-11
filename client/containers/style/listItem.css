@@ -1,0 +1,5 @@
+.listItem {
+    align-items: center;
+    display: flex !important;
+    min-height: 48px;
+}
