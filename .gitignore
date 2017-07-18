@@ -3,3 +3,7 @@ node_modules
 static
 remote-control
 remote-control.exe
+build
+yarn.lock
+package-lock.json
+yarn-error.log

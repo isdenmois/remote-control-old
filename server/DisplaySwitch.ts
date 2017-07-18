@@ -27,7 +27,7 @@ function changeSound(type: string) {
 
 export default function (type: string) {
     const args = [ `/${type}` ]
-    const prog = path.join(process.env.SystemRoot, 'System32', 'DisplaySwitch.exe')
+    const prog = path.join(process.env.SystemRoot as string, 'System32', 'DisplaySwitch.exe')
     const child = spawn(prog, args, {})
     child.on('close', () => setTimeout(() => changeSound(type), 5000))
 

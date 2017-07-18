@@ -16,7 +16,7 @@ interface Props {
     interval?: number
 }
 
-export default class KeyboardButton extends React.PureComponent<Props, void> {
+export default class KeyboardButton extends React.PureComponent<Props> {
     private interval: number = 0
 
     render() {

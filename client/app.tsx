@@ -21,7 +21,7 @@ const stores = {
 socket.on('films', (films: Film[]) => stores.metadata.setFilms(films))
 socket.on('serials', (serails: Serial[]) => stores.metadata.setSerials(serails))
 
-export default class extends React.Component<any, void> {
+export default class extends React.Component<any> {
     render() {
         return (
             <Provider {...stores}>

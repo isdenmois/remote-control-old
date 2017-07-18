@@ -8,7 +8,7 @@ interface Props {
     onTouchEnd?: () => void
 }
 
-export default class Button extends React.PureComponent<Props, void> {
+export default class Button extends React.PureComponent<Props> {
 
     render() {
         const {icon, onTouchEnd} = this.props

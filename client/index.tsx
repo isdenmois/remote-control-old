@@ -6,7 +6,7 @@ import 'semantic-ui-css/semantic.min.css'
 import RootApp from './app'
 
 const el = document.getElementById('root')
-const render = (Component: React.ComponentClass<any>) => {
+const render = (Component: React.ComponentClass) => {
     ReactDOM.render(<Component />, el)
 }
 

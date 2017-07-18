@@ -5,7 +5,7 @@ import KeyboardButton from '../components/KeyboardButton'
 import ShutdownButton from '../components/ShutdownButton'
 import DisplaySwitchButton from '../components/DisplaySwitchButton'
 
-export default class RemotePage extends React.Component<any, void> {
+export default class RemotePage extends React.Component<any> {
 
     render() {
         return (

@@ -5,7 +5,7 @@ import socket from '../utils/socket'
 
 interface Props {}
 
-export default class ShutdownButton extends React.PureComponent<Props, void> {
+export default class ShutdownButton extends React.PureComponent<Props> {
 
     render() {
         return (

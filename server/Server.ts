@@ -2,7 +2,6 @@ import * as express from 'express'
 import * as ioServer from 'socket.io'
 import * as path from 'path'
 
-import WebpackMiddleware from './Middleware'
 import {Handlers} from './Models'
 import ClientHandler from './ClientHandler'
 import {updateData} from './Parser'
@@ -29,7 +28,8 @@ module.exports = class Server {
                 res.sendFile(p)
             })
         } else {
-            WebpackMiddleware(this.app)
+            const middleware = require('./Middleware.ts').default
+            middleware(this.app)
         }
 
         this.getData()

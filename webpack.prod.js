@@ -46,8 +46,7 @@ module.exports = {
                 loader: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
-                        'css-loader?importLoaders=1&localIdentName=[hash:base64:5]&camelCase&modules',
-                        'postcss-loader',
+                        'css-loader?localIdentName=[hash:base64:5]&camelCase&modules'
                     ],
                 }),
                 exclude: /node_modules/,
@@ -107,7 +106,7 @@ module.exports = {
             sourceMap: false,
             test: /vendors\.js/,
         }),
-        new BabiliPlugin({
+        new BabiliPlugin({}, {
             test: /index\.js$/,
             comments: false,
         }),

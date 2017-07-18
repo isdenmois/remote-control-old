@@ -7,7 +7,7 @@ interface Props extends RouteComponentProps<void> {
 
 }
 
-export default class HomePage extends React.Component<Props, void> {
+export default class HomePage extends React.Component<Props> {
 
     render() {
         return (

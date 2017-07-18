@@ -7,7 +7,7 @@ interface Props {
     type: 'internal'|'external'
 }
 
-export default class DisplaySwitchButton extends React.PureComponent<Props, void> {
+export default class DisplaySwitchButton extends React.PureComponent<Props> {
 
     render() {
         const icon = this.props.type === 'internal' ? 'tv' : 'desktop'

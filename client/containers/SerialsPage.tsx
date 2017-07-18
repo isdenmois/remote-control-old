@@ -22,7 +22,7 @@ interface Props extends RouteComponentProps<RouteParams>{
 
 @inject('metadata')
 @observer
-export default class SerialsPage extends React.Component<Props, void> {
+export default class SerialsPage extends React.Component<Props> {
     private serial: Serial | undefined
 
     componentWillMount() {

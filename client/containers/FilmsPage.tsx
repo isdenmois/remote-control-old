@@ -22,7 +22,7 @@ interface Props extends RouteComponentProps<RouteParams>{
 
 @inject('metadata')
 @observer
-export default class FilmsPage extends React.Component<Props, void> {
+export default class FilmsPage extends React.Component<Props> {
     private film: Film | undefined
 
     componentWillMount() {
