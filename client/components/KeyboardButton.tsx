@@ -14,6 +14,7 @@ interface Props {
     k: string
     modifiers?: string[]
     interval?: number
+    confirm?: string
 }
 
 export default class KeyboardButton extends React.PureComponent<Props> {
@@ -50,6 +51,13 @@ export default class KeyboardButton extends React.PureComponent<Props> {
         if (this.props.modifiers) {
             key.modifiers = this.props.modifiers
         }
-        socket('key', key)        
+
+        if (this.props.confirm) {
+            if (confirm(this.props.confirm)) {
+                socket('key', key)
+            }
+        } else {
+            socket('key', key)
+        }
     }
 }
