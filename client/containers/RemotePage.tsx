@@ -26,6 +26,7 @@ export default class RemotePage extends React.Component<any> {
                 </Row>
                 <Row>
                     <KeyboardButton icon="volume down" k="audio_vol_down" interval={60}/>
+                    <KeyboardButton icon="close" k="f4" modifiers={['alt']} confirm="Закрыть окно?"/>
                     <KeyboardButton icon="volume up" k="audio_vol_up" interval={60}/>
                 </Row>
                 <Row>
