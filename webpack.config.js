@@ -65,8 +65,7 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     'style-loader',
-                    'css-loader?importLoaders=1&localIdentName=[path]--[local]&camelCase&modules&sourceMap',
-                    'postcss-loader',
+                    'css-loader?localIdentName=[path]--[local]&camelCase&modules&sourceMap',
                 ],
                 exclude: /node_modules/,
             },
