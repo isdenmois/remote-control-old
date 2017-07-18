@@ -4,6 +4,7 @@ import {observer, inject} from 'mobx-react'
 import {List} from 'semantic-ui-react'
 
 import {find, map, sortBy} from 'lodash'
+import {fileOpen} from '../utils/socket'
 import {Serial} from '../models/Serial'
 import {File} from '../models/File'
 import MetadataStore from "../stores/MetadataStore"
@@ -89,16 +90,16 @@ export default class SerialsPage extends React.Component<Props, void> {
         if (files && files.length > 1) {
             this.props.history.push(`/serials/${serial.hash}`)
         } else if (files && files.length > 0) {
-            open(serial.files[0].path)
+            fileOpen(serial.files[0].path)
             this.props.history.push('/remote')
         } else {
-            open(serial.path)
+            fileOpen(serial.path)
             this.props.history.push('/remote')
         }
     }
 
     private handleFileClick(file: File) {
-        open(file.path)
+        fileOpen(file.path)
         this.props.history.push('/remote')
     }
 }

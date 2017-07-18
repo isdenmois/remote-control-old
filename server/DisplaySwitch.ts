@@ -1,10 +1,27 @@
 import {spawn, exec}  from 'child_process'
 import * as path from 'path'
+const portAudio = require('naudiodon')
 
+
+interface AudioDevice {
+    name: string
+}
 
 function changeSound(type: string) {
-    const to = type === 'internal' ? 'AAA-8' : 'Динамики'
-    console.dir(to)
+    let to
+    if (type === 'internal') {
+        to = 'AAA'
+        const devices: AudioDevice[] = portAudio.getDevices()
+        devices.forEach(device => {
+            if (device.name.startsWith('AAA')) {
+                to = device.name.substr(0, device.name.indexOf(' '))
+            }
+        })
+    } else {
+        to = 'Динамики'
+    }
+    console.log(`=======================${to}========================`)
+
     return exec(`nircmd setdefaultsounddevice ${to}`)
 }
 

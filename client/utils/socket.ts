@@ -1,6 +1,6 @@
 export const socket: SocketIOClient.Socket = io()
 
-export function open(path: string) {
+export function fileOpen(path: string) {
     socket.emit('open', path)
 }
 

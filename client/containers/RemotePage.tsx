@@ -12,8 +12,8 @@ export default class RemotePage extends React.Component<any, void> {
             <Grid>
                 <Row>
                     <ShutdownButton/>
-                    <DisplaySwitchButton type="external"/>
                     <DisplaySwitchButton type="internal"/>
+                    <DisplaySwitchButton type="external"/>
                 </Row>
                 <Row>
                     <KeyboardButton icon="step backward" k="pageup"/>

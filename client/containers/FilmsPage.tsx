@@ -4,6 +4,7 @@ import {observer, inject} from 'mobx-react'
 import {List} from 'semantic-ui-react'
 
 import {find, map, sortBy} from 'lodash'
+import {fileOpen} from '../utils/socket'
 import {Film} from '../models/Film'
 import {File} from '../models/File'
 import MetadataStore from "../stores/MetadataStore"
@@ -88,16 +89,16 @@ export default class FilmsPage extends React.Component<Props, void> {
         if (files && files.length > 1) {
             this.props.history.push(`/films/${film.hash}`)
         } else if (files && files.length > 0) {
-            open(film.files[0].path)
+            fileOpen(film.files[0].path)
             this.props.history.push('/remote')
         } else {
-            open(film.path)
+            fileOpen(film.path)
             this.props.history.push('/remote')
         }
     }
 
     private handleFileClick(file: File) {
-        open(file.path)
+        fileOpen(file.path)
         this.props.history.push('/remote')
     }
 }
