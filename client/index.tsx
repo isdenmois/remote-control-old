@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom'
 import {Provider} from 'mobx-react'
 import 'semantic-ui-css/semantic.min.css'
 
-import RootApp from './app'
+import RootApp from './containers/App'
 
 const el = document.getElementById('root')
 const render = (Component: React.ComponentClass) => {

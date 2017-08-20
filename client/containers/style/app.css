@@ -1,0 +1,38 @@
+.app {
+    min-height: 100vh;
+    padding-bottom: 40px;
+    position: relative;
+}
+
+.link {
+    align-items: center;
+    background-color: white;
+    color: #007AFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 40px;
+    text-align: center;
+    width: 100%;
+}
+
+.activeLink, .activeLink:hover {
+    background-color: #007AFF;
+    color: white;
+}
+
+.footer {
+    background-color: white;
+    border-top: 1px solid #ccc;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    height: 40px;
+    position: fixed;
+    width: 100%;
+}
+
+.link > i.icon {
+    height: 21px;
+    line-height: 46px;
+}
