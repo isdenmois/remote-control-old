@@ -38,15 +38,15 @@ export default class extends React.Component<any> {
                             <Route path="/" component={RemotePage}/>
                         </Switch>
                         <div className={s.footer}>
-                            <NavLink strict exact to="/" className={s.link} activeClassName={s.activeLink}>
+                            <NavLink strict exact to="/" className={s.link} activeClassName={s.activeLink} onTouchEnd={this.onTouchEnd}>
                                 <Icon size="large" name="podcast" className={s.icon}/>
                                 <div>Пульт</div>
                             </NavLink>
-                            <NavLink to="/films" className={s.link} activeClassName={s.activeLink}>
+                            <NavLink to="/films" className={s.link} activeClassName={s.activeLink} onTouchEnd={this.onTouchEnd}>
                                 <Icon size="large" name="film" className={s.icon}/>
                                 <div>Фильмы</div>
                             </NavLink>
-                            <NavLink to="/serials" className={s.link} activeClassName={s.activeLink}>
+                            <NavLink to="/serials" className={s.link} activeClassName={s.activeLink} onTouchEnd={this.onTouchEnd}>
                                 <Icon size="large" name="server" className={s.icon}/>
                                 <div>Сериалы</div>
                             </NavLink>
@@ -55,5 +55,10 @@ export default class extends React.Component<any> {
                 </BrowserRouter>
             </Provider>
         )
+    }
+
+    private onTouchEnd = (e: any) => {
+        e.preventDefault()
+        e.target.click()
     }
 }
